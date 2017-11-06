@@ -2,9 +2,11 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
+import pyperclip
+
 from constants import helper_constants, tech_constants
 from page import ya_ru, clipboard_js
-import pyperclip
+
 
 
 def wait_for_element(element, driver, time=tech_constants.TIMEOUT):
