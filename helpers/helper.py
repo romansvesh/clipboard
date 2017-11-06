@@ -5,7 +5,7 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from constants import helper_constants, tech_constants
-from page import google_com, clipboard_js
+from page import ya_ru, clipboard_js
 import pyperclip
 
 
@@ -32,14 +32,14 @@ def send_text_to_clipboard():
 
 
 def set_focus_to_search_input(driver):
-    wait_for_element(google_com.get_search_input(driver), driver)
+    wait_for_element(ya_ru.get_search_input(driver), driver)
     driver.execute_script('arguments[0].focus();',
-                          google_com.get_search_input(driver))
+                          ya_ru.get_search_input(driver))
 
 
 def ctrl_v(driver):
-    ActionChains(driver).send_keys(Keys.CONTROL + "v")
+    ActionChains(driver).key_down(Keys.CONTROL).send_keys("v").perform()
 
 
 def get_text_from_search_input(driver):
-    return google_com.get_search_input(driver).text
+    return ya_ru.get_search_input(driver).get_attribute("value")
